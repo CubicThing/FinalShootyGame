@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://chara/bullet.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+
+flags = 4
+load_path = "res://.import/enemybullet.png-1a113f3db955b43c0e80b8074007e175.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.7337, 13.7278 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="StreamTexture" id=3]
+
+flags = 4
+load_path = "res://.import/bullet.png-43a939972cc07e0dc55a8a65026c1e6e.stex"
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+position = Vector2( -0.247063, 2.40593 )
+scale = Vector2( 0.980231, 1.02699 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 1
+contacts_reported = 2
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Transform", "Visibility", "Z Index" ]
+
+[node name="enemy" type="Sprite" parent="." index="0"]
+
+rotation = 1.5708
+scale = Vector2( 1.2, 1.2 )
+texture = SubResource( 1 )
+_sections_unfolded = [ "Offset", "Pause", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.508436, -1.01538 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="ally" type="Sprite" parent="." index="3"]
+
+position = Vector2( -0.786623, -0.50054 )
+rotation = 1.5708
+texture = SubResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+

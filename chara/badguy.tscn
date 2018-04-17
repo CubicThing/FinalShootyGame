@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://chara/badguy.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+
+flags = 4
+load_path = "res://.import/badguy.png-df2738c4f79115b2a38b5607ec1c1afd.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 48.9962, 48.1896 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -45.5104, 0.78333, -40.2717, -20.8493, -22.3497, -39.1959, 0.477597, -44.1362, 25.2792, -39.2026, 40.8846, -21.6611, 47.5727, -0.00833765, 41.8936, 26.7972, 21.6564, 42.475, -0.358397, 47.1344, -20.1439, 40.8305, -39.9959, 25.7019 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 55.4587
+
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0.377365, 0.37735 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 1.94171, 1.10956 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2"]
+
+position = Vector2( -0.48742, -0.355406 )
+scale = Vector2( 1.00605, 1.013 )
+occluder = SubResource( 3 )
+light_mask = 1
+
+[node name="circle" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="circle" index="0"]
+
+position = Vector2( -0.169594, 1.40257 )
+scale = Vector2( 0.986954, 1.03401 )
+shape = SubResource( 4 )
+
+
